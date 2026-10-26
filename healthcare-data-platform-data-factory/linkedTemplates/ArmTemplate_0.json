@@ -7,13 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "healthcare-data-platform-data-factory"
 		},
-		"LS_PostgreSql_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_PostgreSql'"
-		},
 		"LS_ADLS_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://healthcaredataplatstoacc.dfs.core.windows.net/"
+		},
+		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://healthcare-dp-key-vault.vault.azure.net/"
 		},
 		"LS_PostgreSql_properties_typeProperties_server": {
 			"type": "string",
@@ -46,6 +46,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/LS_AzureKeyVault')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('LS_AzureKeyVault_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LS_PostgreSql')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -58,14 +71,20 @@
 					"database": "[parameters('LS_PostgreSql_properties_typeProperties_database')]",
 					"username": "[parameters('LS_PostgreSql_properties_typeProperties_username')]",
 					"password": {
-						"type": "SecureString",
-						"value": "[parameters('LS_PostgreSql_password')]"
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "LS_AzureKeyVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "postgres-hcp-password"
 					},
 					"sslMode": 2,
 					"authenticationType": "Basic"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_AzureKeyVault')]"
+			]
 		}
 	]
 }
