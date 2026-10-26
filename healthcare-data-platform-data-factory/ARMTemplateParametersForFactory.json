@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "healthcare-data-platform-data-factory"
+		},
+		"LS_PostgreSql_password": {
+			"value": ""
+		},
+		"LS_ADLS_properties_typeProperties_url": {
+			"value": "https://healthcaredataplatstoacc.dfs.core.windows.net/"
+		},
+		"LS_PostgreSql_properties_typeProperties_server": {
+			"value": "ep-misty-forest-az6qs16n-pooler.c-3.ap-southeast-1.aws.neon.tech"
+		},
+		"LS_PostgreSql_properties_typeProperties_database": {
+			"value": "neondb"
+		},
+		"LS_PostgreSql_properties_typeProperties_username": {
+			"value": "neondb_owner"
+		}
+	}
+}
