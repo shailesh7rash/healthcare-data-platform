@@ -15,18 +15,6 @@
 			"type": "string",
 			"defaultValue": "https://healthcare-dp-key-vault.vault.azure.net/"
 		},
-		"LS_PostgreSql_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "ep-misty-forest-az6qs16n-pooler.c-3.ap-southeast-1.aws.neon.tech"
-		},
-		"LS_PostgreSql_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "neondb"
-		},
-		"LS_PostgreSql_properties_typeProperties_username": {
-			"type": "string",
-			"defaultValue": "neondb_owner"
-		},
 		"LS_AzureSqlDatabase_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "healthcare-data-platform-server.database.windows.net"
@@ -38,6 +26,18 @@
 		"LS_AzureSqlDatabase_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "hcp-sql-db-user"
+		},
+		"LS_PostgreSql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "ep-misty-forest-az6qs16n-pooler.c-3.ap-southeast-1.aws.neon.tech"
+		},
+		"LS_PostgreSql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "neondb"
+		},
+		"LS_PostgreSql_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "neondb_owner"
 		},
 		"containerUri": {
 			"type": "string",
@@ -72,15 +72,6 @@
 					"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LS_AzureKeyVault_properties_typeProperties_baseUrl')]"
 					},
-					"LS_PostgreSql_properties_typeProperties_server": {
-						"value": "[parameters('LS_PostgreSql_properties_typeProperties_server')]"
-					},
-					"LS_PostgreSql_properties_typeProperties_database": {
-						"value": "[parameters('LS_PostgreSql_properties_typeProperties_database')]"
-					},
-					"LS_PostgreSql_properties_typeProperties_username": {
-						"value": "[parameters('LS_PostgreSql_properties_typeProperties_username')]"
-					},
 					"LS_AzureSqlDatabase_properties_typeProperties_server": {
 						"value": "[parameters('LS_AzureSqlDatabase_properties_typeProperties_server')]"
 					},
@@ -89,6 +80,15 @@
 					},
 					"LS_AzureSqlDatabase_properties_typeProperties_userName": {
 						"value": "[parameters('LS_AzureSqlDatabase_properties_typeProperties_userName')]"
+					},
+					"LS_PostgreSql_properties_typeProperties_server": {
+						"value": "[parameters('LS_PostgreSql_properties_typeProperties_server')]"
+					},
+					"LS_PostgreSql_properties_typeProperties_database": {
+						"value": "[parameters('LS_PostgreSql_properties_typeProperties_database')]"
+					},
+					"LS_PostgreSql_properties_typeProperties_username": {
+						"value": "[parameters('LS_PostgreSql_properties_typeProperties_username')]"
 					}
 				}
 			},
