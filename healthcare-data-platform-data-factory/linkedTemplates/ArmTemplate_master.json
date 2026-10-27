@@ -11,6 +11,10 @@
 			"type": "string",
 			"defaultValue": "https://healthcaredataplatstoacc.dfs.core.windows.net/"
 		},
+		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://healthcare-dp-key-vault.vault.azure.net/"
+		},
 		"LS_PostgreSql_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "ep-misty-forest-az6qs16n-pooler.c-3.ap-southeast-1.aws.neon.tech"
@@ -23,9 +27,17 @@
 			"type": "string",
 			"defaultValue": "neondb_owner"
 		},
-		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+		"LS_AzureSqlDatabase_properties_typeProperties_server": {
 			"type": "string",
-			"defaultValue": "https://healthcare-dp-key-vault.vault.azure.net/"
+			"defaultValue": "healthcare-data-platform-server.database.windows.net"
+		},
+		"LS_AzureSqlDatabase_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "healthcare-data-platform-sql-db"
+		},
+		"LS_AzureSqlDatabase_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "hcp-sql-db-user"
 		},
 		"containerUri": {
 			"type": "string",
@@ -68,6 +80,15 @@
 					},
 					"LS_PostgreSql_properties_typeProperties_username": {
 						"value": "[parameters('LS_PostgreSql_properties_typeProperties_username')]"
+					},
+					"LS_AzureSqlDatabase_properties_typeProperties_server": {
+						"value": "[parameters('LS_AzureSqlDatabase_properties_typeProperties_server')]"
+					},
+					"LS_AzureSqlDatabase_properties_typeProperties_database": {
+						"value": "[parameters('LS_AzureSqlDatabase_properties_typeProperties_database')]"
+					},
+					"LS_AzureSqlDatabase_properties_typeProperties_userName": {
+						"value": "[parameters('LS_AzureSqlDatabase_properties_typeProperties_userName')]"
 					}
 				}
 			},
