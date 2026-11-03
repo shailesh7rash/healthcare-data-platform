@@ -84,7 +84,7 @@
 				}
 			},
 			{
-				"name": "Execute Pipeline1",
+				"name": "Send status via Gmail",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
