@@ -134,6 +134,35 @@
 								}
 							}
 						}
+					},
+					{
+						"name": "Execute Pipeline1",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Silver to Gold",
+								"dependencyConditions": [
+									"Completed"
+								]
+							}
+						],
+						"policy": {
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "PL_Send_Gmail",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {
+								"adf_run_id": {
+									"value": "@pipeline().RunId",
+									"type": "Expression"
+								}
+							}
+						}
 					}
 				],
 				"policy": {
@@ -143,7 +172,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/PL_Source_to_Silver_Master')]",
-				"[concat(variables('factoryId'), '/pipelines/PL_Silver_to_Gold')]"
+				"[concat(variables('factoryId'), '/pipelines/PL_Silver_to_Gold')]",
+				"[concat(variables('factoryId'), '/pipelines/PL_Send_Gmail')]"
 			]
 		},
 		{
