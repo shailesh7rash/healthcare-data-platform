@@ -1,0 +1,12 @@
+{
+	"name": "healthcare-data-platform-data-factory",
+	"properties": {
+		"globalParameters": {
+			"email_recipients": {
+				"type": "string",
+				"value": "shailesh.rash@gmail.com"
+			}
+		}
+	},
+	"location": "centralindia"
+}
