@@ -1575,7 +1575,7 @@
 						}
 					},
 					{
-						"name": "Execute Pipeline1",
+						"name": "Send status via Gmail",
 						"type": "ExecutePipeline",
 						"dependsOn": [
 							{
@@ -1613,6 +1613,45 @@
 				"[concat(variables('factoryId'), '/pipelines/PL_Source_to_Silver_Master')]",
 				"[concat(variables('factoryId'), '/pipelines/PL_Silver_to_Gold')]",
 				"[concat(variables('factoryId'), '/pipelines/PL_Send_Gmail')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TGR_HCP_Daily')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "PL_Main_Driver",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2026-11-03T06:27:00Z",
+						"endTime": "2026-11-06T02:30:00Z",
+						"timeZone": "UTC",
+						"schedule": {
+							"minutes": [
+								30
+							],
+							"hours": [
+								1
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_Main_Driver')]"
 			]
 		}
 	]
