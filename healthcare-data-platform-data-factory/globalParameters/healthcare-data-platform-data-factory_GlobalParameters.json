@@ -1,7 +1,7 @@
 {
 	"email_recipients": {
 		"type": "string",
-		"value": "shailesh.rash@gmail.com"
+		"value": "abc.xyz@gmail.com"
 	},
 	"ENV": {
 		"type": "string",
@@ -9,6 +9,6 @@
 	},
 	"logic_app_url": {
 		"type": "string",
-		"value": "https://prod-02.centralindia.logic.azure.com:443/workflows/d9891778d578470689b86608435636cc/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=gCHjmYzzE_DOFXkttShxEQP6XK7bIxWEJ8P7ZPqxvnc"
+		"value": "https://prod.centralindia.logic.azure.com:443/workflows"
 	}
 }
