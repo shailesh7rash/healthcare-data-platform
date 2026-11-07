@@ -4,7 +4,7 @@
 		"globalParameters": {
 			"email_recipients": {
 				"type": "string",
-				"value": "shailesh.rash@gmail.com"
+				"value": "abc.xyz@gmail.com"
 			},
 			"ENV": {
 				"type": "string",
